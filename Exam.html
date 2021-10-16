@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <script src="jquery-3.6.0.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function(){
+            
+         $(".count-input .FormCountrol").blur(function(){
+             debugger;
+             var q=$(this).val();
+             //var p=$("tbody tr .itemunitrice")
+           var td= $("tbody tr .itemunitrice")
+            for(var i=0; i<=td.lingth;i++){
+              var q=td[i].innerText}
+        })
+       
+        $(".trashIcon").click(function(){
+            debugger;
+         $(this).parents("tr").remove();
+         })
+
+         $("#clearAll").click(function(){
+             debugger;
+         var t=$("tbody tr");
+         for(var i=0; i<=t.length;i++){
+             t[i].remove()}
+            })
+
+             $("#ApplyCoupon").click(function(){
+                debugger;
+              var dis=$("#txtdiscount").val();
+               
+              var div1=$("<div/>");
+              div1.attr("class","column");
+               var div2=$("<div/>");
+               div2.attr("class","totals");
+                var sp1=$("<spen/>").val("Subtotal:");
+                var sp2=$("<spen/>").val("$100")
+                div2.append(sp1);
+                 div2.append(sp2);
+                 div1.append(div2)
+                 
+                 var ddiv1=$("<div/>");
+                ddiv1. attr("class","totals");
+                var spn1=$("<spen/>").val("Discount:");
+                var spn2=$("<spen/>").val(dis)
+                ddiv1.append(spn1);
+                 ddiv1.append(spn2);
+                 ddiv1.append(div1)
+
+                 var ddiv2=$("<div/>");
+                ddiv1 .attr("class","totals");
+                var spn1=$("<spen/>").val("Amount:");
+                var amount=$("total").val();
+                //var spn2=$("<spen/>").val(dis)
+                ddiv1.append(spn1);
+                 ddiv1.append(spn2);
+                 ddiv1.append(div1)
+
+             })
+
+
+
+
+
+
+
+
+         
+
+
+        })
+        </script>
+
+    </head>
+    <body>
+<div class="maindiv">
+    <div class="shopping-cart">
+<table class="table-responsive table">
+    <thead>
+<tr>
+    <th class="text-align">
+        Product Name
+    </th>
+    <th class="text-align">
+        Quantity
+    </th>
+    <th class="text-align">
+        Unit Price
+    </th>
+    <th class="text-align">
+        Subtotal
+    </th>
+    <th>
+        <button  id="clearAll" class="btn btndanger">Clear Cart</button>
+    </th>
+
+</tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <div class="product-item">
+                    <a class="product-thumb" href="#"><img src="000000.png" alt="Product"></a>
+                    <div class="product-info">
+                        <h4 class="product-title"><a href="#">Unionbay Park</a></h4><span>Size: 10.5</span><span>Color: Dark Blue</span>
+                    </div>
+                </div>
+            </td>
+            <td class="text-align">
+                <div class="count-input">
+                    <input type="text" class="FormCountrol" value="1" style="text-align: center;" />
+                </div>
+            </td>
+            <td class="text-align itemunitrice">
+                $20
+            </td>
+            <td class="text-align itemsubtotal">
+                $20
+            </td>
+            <td class="text-align">
+                <img src="trash-fill.svg" class="trashIcon" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="product-item">
+                    <a class="product-thumb" href="#"><img src="000002.png" alt="Product"></a>
+                    <div class="product-info">
+                        <h4 class="product-title"><a href="#">	
+                            Cole Haan Crossbody</a></h4><span>Size: -</span><span>Color: Turquoise</span>
+                    </div>
+                </div>
+            </td>
+            <td class="text-align">
+                <div class="count-input">
+                    <input type="text" class="FormCountrol" value="1" style="text-align: center;" />
+                </div>
+            </td>
+            <td class="text-align itemunitrice">
+                $20
+            </td>
+            <td class="text-align itemsubtotal">
+                $20
+            </td>
+            <td class="text-align">
+                <img src="trash-fill.svg" class="trashIcon" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="product-item">
+                    <a class="product-thumb" href="#"><img src="000001.png" alt="Product"></a>
+                    <div class="product-info">
+                        <h4 class="product-title"><a href="#">	
+                            Daily Fabric Cap</a></h4><span>Size: XL</span><span>Color: Black</span>
+                    </div>
+                </div>
+            </td>
+            <td class="text-align">
+                <div class="count-input">
+                    <input type="text" class="FormCountrol" value="2" style="text-align: center;" />
+                </div>
+            </td>
+            <td class="text-align itemunitrice">
+                $30
+            </td>
+            <td class="text-align itemsubtotal">
+                $60
+            </td>
+            <td class="text-align">
+                <img src="trash-fill.svg" class="trashIcon" />
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+
+
+
+<div class="shopping-cart-footer">
+    <div class="column">
+        <div style="margin-left: 20px;">
+        <input type="text" id="txtdiscount" class="FormCountrol" style="display: inline-block;width: 250px;" />
+        <input type="button" class="btn ButtonSubmit" id="ApplyCoupon" value="Apply Coupon" style="display: inline-block;" />
+    </div>
+    </div>
+    <div class="column">
+        <div id="SubTotals">
+        <div class="totals">
+        <span>Subtotal: </span>
+        <span id="subtotal">$100</span>
+    </div>
+    <div class="totals">
+        <span>Discount: </span>
+        <span>10%</span>
+    </div>
+</div>
+    <div class="totals">
+        <h4>
+        <span>Amount: </span>
+        <span id="total">$90</span>
+    </h4>
+    </div>
+    </div>
+
+</div>
+</div>
+    </body>
+</html>
